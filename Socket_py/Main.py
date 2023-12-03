@@ -72,13 +72,13 @@ def Filter_mail(s, list_folder, number_mail, namemail):
         with open(path_mailbox + Filter[0]["From-to"] + "/UnRead/" + namemail, "w") as f: 
             f.write(content_file)
     elif check_in_list(Filter[1]["Subject"], subject): 
-            with open(path_mailbox + Filter[0]["Subject-to"] + "/UnRead/" + namemail, "w") as f: 
+            with open(path_mailbox + Filter[1]["Subject-to"] + "/UnRead/" + namemail, "w") as f: 
                  f.write(content_file)
     elif check_in_list(Filter[2]["Content"], content): 
-            with open(path_mailbox + Filter[0]["Content-to"] + "/UnRead/" + namemail, "w") as f: 
+            with open(path_mailbox + Filter[2]["Content-to"] + "/UnRead/" + namemail, "w") as f: 
                  f.write(content_file)
     elif check_in_list(Filter[3]["Spam"], subject) or check_in_list(Filter[3]["Spam"], content): 
-            with open(path_mailbox + Filter[0]["Spam-to"] + "/UnRead/" + namemail, "w") as f: 
+            with open(path_mailbox + Filter[3]["Spam-to"] + "/UnRead/" + namemail, "w") as f: 
                  f.write(content_file)
     else:
             with open(path_mailbox + "Inbox/UnRead/" + namemail,"w") as f:
