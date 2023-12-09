@@ -136,11 +136,11 @@ def content_choose2(s, number_of_mail, list_namemail, list_folder):
             T.append((path_mailbox + list_folder[choose - 1],"/Read/", i))
 
         if (len(list_fileFolder) == 0) :
-            print("Folder Trong")
+            print("Khong co email trong folder nay!\r\n")
             return True 
 
    
-        print("Day la danh sach mail trong " + list_folder[choose - 1] + " folder")
+        print("\r\nDay la danh sach mail trong " + list_folder[choose - 1] + " folder")
         c = 0
         for i in list_fileFolder:
             From,subject_mail,content_mail,list_file, Readed = i 
@@ -185,7 +185,7 @@ def process_FILTER() :
     
 
 def MENU() :
-    print("Vui long chon Menu: ")
+    print("\r\nVui long chon Menu: ")
     print("1. De gui email")
     print("2. De xem danh sach cac email da nhan")
     print("3. Thoat")
