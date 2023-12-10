@@ -81,7 +81,7 @@ def send_email_with_attachment(sender_email, to_email_list, subject, body, attac
                 chunk = attachment_data[i:i + chunk_size]
                 cnt_size += 1024
                 if (cnt_size > 3000000):
-                    print("File vuot qua kich thuc 3MB, yeu cau gui lai")
+                    print("File",namefile,"vuot qua kich thuc 3MB, yeu cau gui lai")
                     return False
                 email_message += f'{chunk}\r\n'
         # # Add attachment data to the email message
