@@ -149,10 +149,9 @@ def content_choose2(s, number_of_mail, list_namemail, list_folder):
             if (Readed == False): print(f"(chua doc) ",end = "")
             print(f"<{From}> <{subject_mail}>")
         
-        pos = input("Ban doc mail thu may (hoac nhan enter de thoat ra ngoai, hoac nhan 0 de xem lai danh sach email): ")
+        pos = input("Ban doc mail thu may (nhan enter de thoat ra ngoai): ")
         if (pos == ""): return False # True : xem lai danh sach email trong folder 
         pos = int(pos)
-        if (pos == 0): continue
         From, subject, content, list_file, Readed = list_fileFolder[pos - 1]
         print(f"noi dung mail cua mail thu {pos} la: {content}")
         if (len(list_file) != 0):
@@ -185,10 +184,10 @@ def process_FILTER() :
     
 
 def MENU() :
-    print("\r\nVui long chon Menu: ")
+    print("\r\nVui long chon: ")
     print("1. De gui email")
     print("2. De xem danh sach cac email da nhan")
-    print("3. Login to other account")
+    print("3. Dang nhap vao tai khoan khac")
     print("4. Thoat")
     choose = input("Ban chon: ")
     if (choose == "4"): return
