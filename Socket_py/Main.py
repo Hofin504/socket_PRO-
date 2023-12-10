@@ -210,18 +210,26 @@ def MENU() :
 import subprocess
 import json 
 
-def change_json(value_change):
+def change_json(keyword_changed, value_changed):
     tmp_data = ""
     with open("Data.json","r") as f:
         tmp_data = json.loads(f.read())
         
-    tmp_data["Exit_program"] = value_change 
+    tmp_data[keyword_changed] = value_changed 
     with open("Data.json","w") as f:
         json.dump(tmp_data,f,indent=2, ensure_ascii=False)
 
+def LOGIN_account() :
+    username = "<" + input("Username: ") + ">"
+    password = input("Password: ")
+    change_json("username", username) 
+    change_json("password", password) 
+
 if __name__ == "__main__":
-    change_json(False)
+    change_json("Exit_program", False)
+    LOGIN_account()
+
     command = "python autoload.py"
     process1 = subprocess.Popen(["start", "cmd", "/k", command], shell=True)
     MENU() 
-    change_json(True)
+    change_json("Exit_program", True)
