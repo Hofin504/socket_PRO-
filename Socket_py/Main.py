@@ -188,18 +188,20 @@ def MENU() :
     print("\r\nVui long chon Menu: ")
     print("1. De gui email")
     print("2. De xem danh sach cac email da nhan")
-    print("3. Thoat")
+    print("3. Login to other account")
+    print("4. Thoat")
     choose = input("Ban chon: ")
-    if (choose == "3"): return
+    if (choose == "4"): return
     if (choose == "1"): 
         list_mail = {"to": [], "cc": [], "bcc": []}
         list_file = []
         subject_mail = content_mail = ""
         list_mail, list_file, subject_mail, content_mail = content_choose1(list_mail, list_file, subject_mail, content_mail)
         if (mailsmtp.client_mail(list_mail,list_file,subject_mail,content_mail) == False): MENU()
-    else:
+    elif choose == "2":
         s, number_of_mail, list_namemail, list_folder = process_FILTER()
         while(content_choose2(s, number_of_mail, list_namemail, list_folder)): continue
+    else: LOGIN_account()
     
     MENU()
 
@@ -220,6 +222,7 @@ def change_json(keyword_changed, value_changed):
         json.dump(tmp_data,f,indent=2, ensure_ascii=False)
 
 def LOGIN_account() :
+    print("Login")
     username = "<" + input("Username: ") + ">"
     password = input("Password: ")
     change_json("username", username) 
@@ -227,7 +230,7 @@ def LOGIN_account() :
 
 if __name__ == "__main__":
     change_json("Exit_program", False)
-    LOGIN_account()
+    LOGIN_account() 
 
     command = "python autoload.py"
     process1 = subprocess.Popen(["start", "cmd", "/k", command], shell=True)
